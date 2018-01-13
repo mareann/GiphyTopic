@@ -35,9 +35,10 @@
     var buttonTopic = topicsArray[buttonNumber];
     console.log("topic "+buttonTopic);
 console.log("buttonNumber "+buttonNumber);
-    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key="+giphy_key+"&tag=funny+"+buttonTopic;
+ var queryURL = "https://api.giphy.com/v1/gifs/search?api_key="+giphy_key+"&q=funny+"+buttonTopic+"&limit=10";
+ //   var queryURL = "https://api.giphy.com/v1/gifs/random?api_key="+giphy_key+"&tag=funny+"+buttonTopic;
  console.log("queryURL "+queryURL);
-// console.log("this.text "+$(this).text);
+
  //   var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key="+giphy_key+"&tag=dog";
   //    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cats";
 
@@ -52,9 +53,14 @@ console.log("query "+queryURL);
       // After the data from the AJAX request comes back
       .then(function(response) {
 console.log(response);
+
+      for ( j=0; j < 10; j++ )
+      {
+      // search key
+      var imageUrl = response.data[j].images.original_still.url;
         // Saving the image_original_url property
         // random key
-        var imageUrl = response.data.image_original_url;
+        //var imageUrl = response.data.image_original_url;
       // trending key
       //  var imageUrl = response.data[1].images.original.url;
 
@@ -69,6 +75,7 @@ console.log("imageUrl "+imageUrl);
 
         // Prepending the tmpImage to the images div
         $("#images").prepend(tmpImage);
+        } // end for 
       });
     });
 
