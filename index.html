@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <button id="tmp_button">button</button>
+
   <div id="buttonSection"></div>
   <div id="images">
   </div>
@@ -27,6 +27,25 @@
        $(newButton).addClass("gif");
        $("#buttonSection").append(newButton);
    }
+
+    //The event is tied to "body", a tag which always exists and contains all the .gif elements that should be acted on
+    //The .gifs are the elements that will actually activate the event, and $(this) will point to the individual gifs, not the body
+    $("body").on("click", ".gif", function() {
+      console.log("A gif was clicked!")
+      // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+      var state = $(this).attr("data-state");
+      // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+      // Then, set the image's data-state to animate
+      // Else set src to the data-still value
+      if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+      } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+      }
+    });
+     
     // Event listener for our button
   $("button").on("click", function() {
     // queryURL for Giphy API
@@ -54,10 +73,16 @@ console.log("query "+queryURL);
       .then(function(response) {
 console.log(response);
 
+
       for ( j=0; j < 10; j++ )
       {
       // search key
-      var imageUrl = response.data[j].images.original_still.url;
+
+      // still photo
+      var imageStillUrl = response.data[j].images.original_still.url;
+      // original animated
+      var imageUrl = response.data[j].images.original.url;
+      var imageRating = response.data[j].images.rating;
         // Saving the image_original_url property
         // random key
         //var imageUrl = response.data.image_original_url;
@@ -66,16 +91,43 @@ console.log(response);
 
 console.log("imageUrl "+imageUrl);
 
+        var newPar = $("<p>");
         // Creating and storing an image tag
-        var tmpImage = $("<img>");
+        var newImage = $("<img>");
+
+        newPar.text("Rating "+imageRating);
+
+        // Setting the newImage src attribute to imageUrl
+        newImage.attr("src", imageStillUrl);
+        newImage.attr("alt", "new image");
+
+        newImage.addClass("gif");
+        //    newImage.attr("src", "https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif");
+        newImage.attr("data-still", imageStillUrl);
+        newImage.attr("data-animate", imageUrl);
+        newImage.attr("data-state", "still")
+
+        newImage.attr("rating",imageRating);
+        newPar.prepend(newImage);
+       // var newCaption = $("<figcaption>");
+       // newCaption.text("Rating "+imageRating);
+
+       // newImage.append(newCaption);
+        // Prepending the newImage to the images div
+        $("#images").prepend(newPar);
+      //  $("#images").append(newCaption);
+      } // end for 
+
+       // var imageUrl2 = response.data[0].images.original;
+                      // Creating and storing an image tag
+       // var tmpImage = $("<img>");
 
         // Setting the tmpImage src attribute to imageUrl
-        tmpImage.attr("src", imageUrl);
-        tmpImage.attr("alt", "tmp image");
+       // tmpImage.attr("src", imageUrl2);
+       // tmpImage.attr("alt", "tmp image");
 
         // Prepending the tmpImage to the images div
-        $("#images").prepend(tmpImage);
-        } // end for 
+       // $("#images").prepend(tmpImage);
       });
     });
 
