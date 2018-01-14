@@ -54,6 +54,7 @@
     var buttonTopic = topicsArray[buttonNumber];
     console.log("topic "+buttonTopic);
 console.log("buttonNumber "+buttonNumber);
+
  var queryURL = "https://api.giphy.com/v1/gifs/search?api_key="+giphy_key+"&q=funny+"+buttonTopic+"&limit=10";
  //   var queryURL = "https://api.giphy.com/v1/gifs/random?api_key="+giphy_key+"&tag=funny+"+buttonTopic;
  console.log("queryURL "+queryURL);
@@ -82,7 +83,7 @@ console.log(response);
       var imageStillUrl = response.data[j].images.original_still.url;
       // original animated
       var imageUrl = response.data[j].images.original.url;
-      var imageRating = response.data[j].images.rating;
+      var imageRating = response.data[j].rating;
         // Saving the image_original_url property
         // random key
         //var imageUrl = response.data.image_original_url;
@@ -95,8 +96,9 @@ console.log("imageUrl "+imageUrl);
         // Creating and storing an image tag
         var newImage = $("<img>");
 
-        newPar.text("Rating "+imageRating);
-
+        newPar.html("<br>Rating "+imageRating+"<br><br>");
+        newPar.attr("style","text-align:center");
+        
         // Setting the newImage src attribute to imageUrl
         newImage.attr("src", imageStillUrl);
         newImage.attr("alt", "new image");
