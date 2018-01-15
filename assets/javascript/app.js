@@ -23,7 +23,9 @@
       console.log("topic input "+addedTopic);
 
       queryTopic(addedTopic);
-
+      
+      // does not work???? $("#input-form").reset();
+      document.getElementById("input-form").reset();
     });
 
     //The event is tied to "body", a tag which always exists and contains all the .gif elements that should be acted on
@@ -78,10 +80,13 @@ console.log(response);
       var imageRating = response.data[j].rating;
 
       var imageTitle = response.data[j].title;
-
+      
+      var imageHeight = response.data[j].images.original_still.height;
+      var imageWidth = response.data[j].images.original_still.width;
 console.log("imageUrl "+imageUrl);
 console.log("title "+imageTitle);
-
+console.log("height "+imageHeight);
+console.log("width "+imageWidth);
         // Creating and storing paragraph tag
         var newPar = $("<p>");
 
@@ -105,6 +110,17 @@ console.log("title "+imageTitle);
         newImage.attr("data-state", "still")
 
         newImage.attr("rating",imageRating);
+
+        //if ( (imageWidth/490) > 1 ) {
+        //  if ((imageWidth-490) > 100 )
+        //  {
+            var percent = (490/imageWidth); 
+            console.log("percent is "+percent);
+            newImage.attr("height",imageHeight*percent);
+            newImage.attr("width",imageWidth*percent);
+        //  }
+        //}
+
         newPar.addClass("image-par");
         newPar.prepend(newImage);
        // var newCaption = $("<figcaption>");
