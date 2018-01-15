@@ -61,6 +61,7 @@ console.log("query "+queryURL);
       .then(function(response) {
 console.log(response);
 
+      $("#imagesSection").empty();
 
       for ( j=0; j < 10; j++ )
       {
@@ -70,9 +71,13 @@ console.log(response);
       var imageStillUrl = response.data[j].images.original_still.url;
       // original animated
       var imageUrl = response.data[j].images.original.url;
+      // image Rating
       var imageRating = response.data[j].rating;
 
+      var imageTitle = response.data[j].title;
+
 console.log("imageUrl "+imageUrl);
+console.log("title "+imageTitle);
 
         // Creating and storing paragraph tag
         var newPar = $("<p>");
@@ -80,26 +85,31 @@ console.log("imageUrl "+imageUrl);
         // Creating and storing an image tag
         var newImage = $("<img>");
 
-        newPar.html("<br>Rating "+imageRating+"<br><br>");
+        // add style
+        newPar.html("<br>"+imageTitle+"<br>Rating "+imageRating+"<br><br>");
         newPar.attr("style","text-align:center");
 
         // Setting the newImage src attribute to imageUrl
         newImage.attr("src", imageStillUrl);
         newImage.attr("alt", "new image");
 
+        // add class gif
         newImage.addClass("gif");
+
+        // add still and animate attributes
         newImage.attr("data-still", imageStillUrl);
         newImage.attr("data-animate", imageUrl);
         newImage.attr("data-state", "still")
 
         newImage.attr("rating",imageRating);
+        newPar.addClass("image-par");
         newPar.prepend(newImage);
        // var newCaption = $("<figcaption>");
        // newCaption.text("Rating "+imageRating);
 
        // newImage.append(newCaption);
         // Prepending the newImage to the images div
-        $("#images").prepend(newPar);
+        $("#imagesSection").prepend(newPar);
       //  $("#images").append(newCaption);
       } // end for 
 

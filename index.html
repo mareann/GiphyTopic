@@ -13,11 +13,60 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-   <div class="container">
+  <div class="container">
+
+    <br>
+    <div class="page-header">
+      <h1 class="text-center">GIPHY TOPIC FUN</h1>
+    </div>
+      <!-- Images Panel -->
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 class="panel-title">FUNNY IMAGES</h2>
+            <h3>Click on image to animate it!</h3>
+            <h5>Click again to stop animation</h5>
+          </div>
+          <div class="panel-body" id="imagesSection">
+<!--             <h2 id="name-display">Jimmy John</h2>
+            <h4 id="email-display">Email: jimmy@john.edu</h4>
+            <h4 id="age-display">Age: 27</h4>
+            <p id="comment-display">I'm signing up, because I want to spread sandwiches to the world.</p> -->
+          </div>
+        </div>
+      </div>
+
+    <!-- Input Panel-->
+      <div class="col-lg-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">TOPICS</h3>
+            <h3>Click to display funny images on each Topic</h3>
+          </div>
+
+          <div class="panel-body">
+            <!-- buttons are generated here -->
+            <div id="buttonSection"></div>  
+            <!-- Form -->
+            <form role="form">
+              <div class="form-group">
+                <label for="topic-input">Topic:</label>
+                <input class="form-control" id="topic-input" type="text">
+              </div>
+
+              <button class="btn btn-default" id="add-user" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end row -->
+  </div> <!-- end container -->
+<!--   <div class="container">
     <h1>GIPHY TOPIC FUN</h1>
     <div id="buttonSection"></div>
-    <div id="images"></div>
-  </div> <!--  end container -->
+    <div id="imagesSection"></div>
+  </div>  end container -->
 
     <!--  JAVASCRIPT  -->
     <script type="text/javascript" src="assets/javascript/app.js"></script> 
