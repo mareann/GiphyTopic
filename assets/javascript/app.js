@@ -14,6 +14,17 @@
        $(newButton).addClass("btn-default");
        $("#buttonSection").append(newButton);
    }
+    // Capture Button Click
+    $("#add-topic").on("click", function() {
+      // Don't refresh the page!
+      event.preventDefault();
+
+      var addedTopic = $("#topic-input").val().trim();
+      console.log("topic input "+addedTopic);
+
+      queryTopic(addedTopic);
+
+    });
 
     //The event is tied to "body", a tag which always exists and contains all the .gif elements that should be acted on
     //The .gifs are the elements that will actually activate the event, and $(this) will point to the individual gifs, not the body
@@ -32,22 +43,14 @@
         $(this).attr("data-state", "still");
       }
     });
-     
-    // Event listener for our button
-  $("button").on("click", function() {
-    // queryURL for Giphy API
-    var res = $(this).attr("id").split("-");
-    var buttonNumber = res[1];
-    var buttonTopic = topicsArray[buttonNumber];
-    console.log("topic "+buttonTopic);
-console.log("buttonNumber "+buttonNumber);
+ 
+ function queryTopic( newTopic) {
+  
+  console.log("newTopic "+newTopic) ; 
 
- var queryURL = "https://api.giphy.com/v1/gifs/search?api_key="+giphy_key+"&q=funny+"+buttonTopic+"&limit=10";
- //   var queryURL = "https://api.giphy.com/v1/gifs/random?api_key="+giphy_key+"&tag=funny+"+buttonTopic;
+  var queryURL = "https://api.giphy.com/v1/gifs/search?api_key="+giphy_key+"&q=funny+"+newTopic+"&limit=10";
+
  console.log("queryURL "+queryURL);
-
- //   var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key="+giphy_key+"&tag=dog";
-  //    var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cats";
 
 console.log("query "+queryURL);
 
@@ -111,8 +114,24 @@ console.log("title "+imageTitle);
         // Prepending the newImage to the images div
         $("#imagesSection").prepend(newPar);
       //  $("#images").append(newCaption);
-      } // end for 
+      } // end for  
+  });
+ }
+//var mytest="mystery pic";
+//queryTopic(mytest);
 
-      });
-    });
+    // Event listener for our button
+$("button").on("click", function() {
+    // queryURL for Giphy API
+    var res = $(this).attr("id").split("-");
+    var buttonNumber = res[1];
+    var buttonTopic = topicsArray[buttonNumber];
+
+    console.log("buttonTopic "+buttonTopic);
+   console.log("buttonNumber "+buttonNumber);
+
+   queryTopic(buttonTopic);
+
+
+});
 
