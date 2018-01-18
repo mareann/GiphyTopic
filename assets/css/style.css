@@ -1,3 +1,14 @@
+h1 {
+/*	margin-top: 1em;*/
+	letter-spacing: 0.05em;
+/*	float:right;
+/*	padding-right:5%;
+	padding-left:1%;*/
+	font-variant: small-caps;
+	font-size:4.25em;
+	text-align: center;
+	margin-top: 1px;
+}
 
 #buttonSection {
 	padding: 1em;
@@ -14,7 +25,12 @@
 	font-weight: bold;
 	font-size: 1.5em;
 }
+/*
+.topicHeader {
+	margin: 0 -10000px;
+	padding: 40px 10000px 30px 10000px;
+}*/
 
 .page-header {
-	margin-top: 0.25em;
+  margin-top: 0.50em;
 }
