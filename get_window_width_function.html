@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body onResize="myFunction()" >
+<p id=printvalues>print here</p>
+  <script>
+  function myFunction() {
+	var w = window.innerWidth;
+    var h = window.innerHeight;
+    document.getElementById("printvalues").innerHTML = "Width: " + w + "<br>Height: " + h;
+
+
+//	var y = w/parseFloat($("html").css("font-size"));
+/*	var x = ' ';*/
+//    var x = "Total Width: " + window.innerWidth + "px  " + y + " em"; 
+ console.log("w width "+w);
+ //console.log("y "+y);
+
+//	document.getElementById("printvalues").innerHTML=w; //x; 
+	/*print out width and y values*/
+	  
+//	if ( y > 75.00 )
+//	  {
+//	  	console.log("> 75");
+	 /*
+        document.getElementById("heirloomPainting").innerHTML = "&ensp;&ensp; H E I R L O O M &ensp;&ensp; P A I N T I N G &ensp;&ensp;&amp;&ensp;&ensp;  F I N I S H I N G";
+        document.getElementById("dustlessDrywallRepair").innerHTML = "&ensp;&ensp; D U S T L E S S &ensp;&ensp; D R Y W A L L &ensp;&ensp;  R E P A I R";
+		document.getElementById("bathRemodel").innerHTML = "&ensp;&ensp; B A T H R O O M &ensp;&ensp; R E M O D E L";
+		document.getElementById("kitchenRemodel").innerHTML = "&ensp;&ensp; K I T C H E N &ensp;&ensp; R E M O D E L";
+/*		document.getElementById("woodworkRestoration").innerHTML = "&ensp;&ensp;C U S T O M&ensp;&ensp; W O O D W O R K";
+*/ /*
+		document.getElementById("customWoodwork").innerHTML = "&ensp;&ensp;C U S T O M&ensp;&ensp; W O O D W O R K";
+  */
+//	  }
+//	else if ( y > 40.063 )
+//	  {
+//	  	console.log("y > 40");
+	  	/*
+        document.getElementById("heirloomPainting").innerHTML = "&ensp;&ensp;H E I R L O O M &ensp;&ensp;  P A I N T I N G";
+		document.getElementById("dustlessDrywallRepair").innerHTML = "&ensp;&ensp; D R Y W A L L &ensp;&ensp;  R E P A I R";
+		document.getElementById("bathRemodel").innerHTML = "B A T H R O O M &ensp;&ensp; R E M O D E L";
+		document.getElementById("kitchenRemodel").innerHTML = "K I T C H E N &ensp;&ensp; R E M O D E L";
+		document.getElementById("customWoodwork").innerHTML = "C U S T O M&ensp;&ensp;W O O D W O R K";
+		*/
+//	  }
+//	else
+//	  {	
+//	  	console.log("else y "+y);
+	  	/*
+        document.getElementById("heirloomPainting").innerHTML = "H E I R L O O M" + "<br>" + "P A I N T I N G";
+		document.getElementById("dustlessDrywallRepair").innerHTML =  "D U S T L E S S" + "<br>" + "D R Y W A L L";
+		document.getElementById("bathRemodel").innerHTML = "B A T H R O O M S";
+		document.getElementById("kitchenRemodel").innerHTML = "K I T C H E N S ";
+		document.getElementById("customWoodwork").innerHTML = "C U S T O M" + "<br>" +"W O O D W O R K";
+		*/
+//	  }
+		
+  }
+  </script> 
+
+</body>
+</html>

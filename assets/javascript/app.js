@@ -3,6 +3,10 @@
   var topicsArray = [ "dinosaur", "jellyfish", "giraffe",
       "dogs","cats","birds","elephant","fish",
       "tiger","shark"];
+  //var maxWidth = 490;
+
+  var maxWidth = $("#imagesHeader").width();
+  console.log("maxWidth "+maxWidth);
 
   for ( var i=0; i < topicsArray.length; i++)
    {
@@ -26,6 +30,8 @@
       
       // does not work???? $("#input-form").reset();
       document.getElementById("input-form").reset();
+      maxWidth = $("#imagesHeader").width();
+      console.log("new maxWidth "+maxWidth);
     });
 
     //The event is tied to "body", a tag which always exists and contains all the .gif elements that should be acted on
@@ -85,8 +91,8 @@ console.log(response);
       var imageWidth = response.data[j].images.original_still.width;
 console.log("imageUrl "+imageUrl);
 console.log("title "+imageTitle);
-console.log("height "+imageHeight);
-console.log("width "+imageWidth);
+//console.log("height "+imageHeight);
+console.log("width "+imageWidth + " height "+imageHeight);
         // Creating and storing paragraph tag
         var newPar = $("<p>");
 
@@ -111,15 +117,12 @@ console.log("width "+imageWidth);
 
         newImage.attr("rating",imageRating);
 
-        //if ( (imageWidth/490) > 1 ) {
-        //  if ((imageWidth-490) > 100 )
-        //  {
-            var percent = (490/imageWidth); 
-            console.log("percent is "+percent);
-            newImage.attr("height",imageHeight*percent);
-            newImage.attr("width",imageWidth*percent);
-        //  }
-        //}
+        var percent = (maxWidth-20)/imageWidth; 
+        console.log("percent is "+percent);
+        // increase or decrease to stay inside form
+        newImage.attr("height",imageHeight*percent);
+        newImage.attr("width",imageWidth*percent);
+       // newImage.addClass("img-responsive");
 
         newPar.addClass("image-par");
         newPar.prepend(newImage);
@@ -148,6 +151,7 @@ $("button").on("click", function() {
 
    queryTopic(buttonTopic);
 
-
+      maxWidth = $("#imagesHeader").width();
+      console.log("new2 maxWidth "+maxWidth);
 });
 

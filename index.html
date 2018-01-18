@@ -12,7 +12,20 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+
+<!-- <body onResize="myFunction()">  -->
+  <body>
+  <!-- uncomment to print width values debug myFunction -->
+<!--  <p id="printvalues"></p>
+
+ function myFunction() {
+  var w = window.innerWidth;
+    var h = window.innerHeight;
+ //   var w2 = $(window).width;
+    document.getElementById("printvalues").innerHTML = "Width: " + w + "<br>Height: " + h; // +'w2 '+w2;
+  }
+</script> -->
+
   <div class="container">
 
     <div class="page-header">
@@ -49,7 +62,7 @@
       <div class="col-lg-6">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h2 class="panel-title">FUNNY IMAGES</h2>
+            <h2 class="panel-title" id="imagesHeader">FUNNY IMAGES</h2>
             <h4>Click on image to animate it!</h4>
             <h5>Click again to stop animation</h5>
           </div>
