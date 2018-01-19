@@ -6,7 +6,7 @@
   //var maxWidth = 490;
 
   var maxWidth = $("#imagesHeader").width();
-  console.log("maxWidth "+maxWidth);
+  //console.log("maxWidth "+maxWidth);
 
   for ( var i=0; i < topicsArray.length; i++)
    {
@@ -15,7 +15,7 @@
        newButton.text(topicsArray[i]);
        $(newButton).addClass("gif");
        $(newButton).addClass("btn"); //bootstrap
-       $(newButton).addClass("btn-default");
+       $(newButton).addClass("btn-info");
        $("#buttonSection").append(newButton);
    }
     // Capture Button Click
@@ -31,7 +31,13 @@
       // does not work???? $("#input-form").reset();
       document.getElementById("input-form").reset();
       maxWidth = $("#imagesHeader").width();
-      console.log("new maxWidth "+maxWidth);
+     // console.log("new maxWidth "+maxWidth);
+      if (addedTopic === "")
+        console.log("oops")
+      else {
+      $("#imagesHeader").text("FUNNY IMAGES ON "+addedTopic);
+      console.log("addedTopic "+addedTopic);
+      }
     });
 
     //The event is tied to "body", a tag which always exists and contains all the .gif elements that should be acted on
@@ -89,10 +95,10 @@ console.log(response);
       
       var imageHeight = response.data[j].images.original_still.height;
       var imageWidth = response.data[j].images.original_still.width;
-console.log("imageUrl "+imageUrl);
+//console.log("imageUrl "+imageUrl);
 console.log("title "+imageTitle);
 //console.log("height "+imageHeight);
-console.log("width "+imageWidth + " height "+imageHeight);
+//console.log("width "+imageWidth + " height "+imageHeight);
         // Creating and storing paragraph tag
         var newPar = $("<p>");
 
@@ -118,7 +124,7 @@ console.log("width "+imageWidth + " height "+imageHeight);
         newImage.attr("rating",imageRating);
 
         var percent = (maxWidth-20)/imageWidth; 
-        console.log("percent is "+percent);
+   //     console.log("percent is "+percent);
         // increase or decrease to stay inside form
         newImage.attr("height",imageHeight*percent);
         newImage.attr("width",imageWidth*percent);
@@ -134,6 +140,7 @@ console.log("width "+imageWidth + " height "+imageHeight);
         $("#imagesSection").prepend(newPar);
       //  $("#images").append(newCaption);
       } // end for  
+
   });
  }
 //var mytest="mystery pic";
@@ -150,8 +157,8 @@ $("button").on("click", function() {
    console.log("buttonNumber "+buttonNumber);
 
    queryTopic(buttonTopic);
-
+      $("#imagesHeader").text("FUNNY IMAGES ON "+buttonTopic);
       maxWidth = $("#imagesHeader").width();
-      console.log("new2 maxWidth "+maxWidth);
+     // console.log("new2 maxWidth "+maxWidth);
 });
 
