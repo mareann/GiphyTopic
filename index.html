@@ -4,7 +4,15 @@
 	<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Giphy Topic</title>
-   <!--  <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+<!-- 
+//  Giphy Topic
+//  using giphy.com api
+//  user can select one of the button topic or enter their
+//  own topic
+//  10 images are displayed on the topic
+//  user can click on image to toggle still and animate mode
+//  Maryann Jordan (Chicago)
+-->
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--  JQUERY  -->
@@ -13,40 +21,20 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<!-- <body onResize="myFunction()">  -->
-  <body>
-  <!-- uncomment to print width values debug myFunction -->
-<!--  <p id="printvalues"></p>
 
- function myFunction() {
-  var w = window.innerWidth;
-    var h = window.innerHeight;
- //   var w2 = $(window).width;
-    document.getElementById("printvalues").innerHTML = "Width: " + w + "<br>Height: " + h; // +'w2 '+w2;
-  }
-</script> -->
-
-
-
-<!--     <div>
-      <h1>Topic Fun</h1>
-    </div> 
-    <div class="page-header 
-    <div class="topicHeader"> -->
-<!--     <div>
-      <h1><img src="images/giphy.gif" alt="giphy" height="25%" width="25%">Topic Fun</h1>
-    </div> -->
+<body>
+ 
   <div class="page-header">
-      <h1><img src="images/giphy.gif" alt="giphy" height="15%" width="15%">&nbsp;&nbsp;Topic Fun</h1>
+    <h1><img src="images/giphy.gif" alt="giphy" height="15%" width="15%">&nbsp;&nbsp;Topic Fun</h1>
   </div>
   <div class="container">
     <div class="row">
-    <!-- Input Panel-->
-    <div class="col-lg-6">
+      <!-- Input Panel-->
+      <div class="col-lg-6">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">TOPICS</h3>
-            <h4>Click button below to display 10 gif images on each Topic</h4>
+            <h4>Click button below to display fun images on its Topic</h4>
           </div>
 
           <div class="panel-body">
@@ -55,7 +43,7 @@
             <!-- Form -->
             <form role="form" id="input-form">
               <div class="form-group">
-                <label for="topic-input">Topic:</label>
+                <label for="topic-input">Enter Your Topic:</label>
                 <input class="form-control" id="topic-input" type="text" placeholder="put your topic here">
               </div>
 
@@ -63,11 +51,9 @@
             </form>
           </div>
         </div>
-    </div> <!-- end Input Panel-->
+      </div> <!-- end Input Panel-->
    
-
-    <!-- Images Panel 
-    <div class="row"> -->
+      <!-- Images Panel -->
       <div class="col-lg-6">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -75,29 +61,21 @@
             <h4>Click on image to animate it!</h4>
             <h5>Click again to stop animation</h5>
           </div>
-          <div class="panel-body" id="imagesSection">
-<!--             <h2 id="name-display">Jimmy John</h2>
-            <h4 id="email-display">Email: jimmy@john.edu</h4>
-            <h4 id="age-display">Age: 27</h4>
-            <p id="comment-display">I'm signing up, because I want to spread sandwiches to the world.</p> -->
-          </div>
+          <div class="panel-body" id="imagesSection"></div>
         </div>
-      </div>
-
+      </div> <!-- end Images panel col-lg-6 -->
 
     </div> <!-- end row -->
 
-    <div class="panel-footer">Giphy API Maryann Jordan</div>
+    <div class="panel-footer">            
+      <p>Giphy API 
+         Maryann Jordan 
+        Contact information: <a href="mailto:someone@example.com">mareann.jordan@gmail.com</a></p>
+    </div>
   </div> <!-- end container -->
-<!--   <div class="container">
-    <h1>GIPHY TOPIC FUN</h1>
-    <div id="buttonSection"></div>
-    <div id="imagesSection"></div>
-  </div>  end container -->
 
-    <!--  JAVASCRIPT  -->
-    <script type="text/javascript" src="assets/javascript/app.js"></script> 
- 
+  <!--  JAVASCRIPT  -->
+  <script type="text/javascript" src="assets/javascript/app.js"></script> 
 
 </body>
 
