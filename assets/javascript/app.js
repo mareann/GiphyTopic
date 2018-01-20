@@ -54,8 +54,8 @@
 // The .gifs are the elements that will actually activate the event, and $(this) will point to the individual gifs, not the body
 //--------------------------------------------------------
   $("body").on("click", ".gif", function() {
-    event.preventDefault();
-      
+    //event.preventDefault();
+     // event.stopPropagation();
     //console.log("A gif was clicked!");
 
     // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
@@ -158,7 +158,7 @@
 // Event listener for our button
 //--------------------------------------------------------
  $(".btn-topic").on("click", function() {
-    event.preventDefault();
+ //   event.preventDefault();
     
     // queryURL for Giphy API
     var res = $(this).attr("id").split("-");
